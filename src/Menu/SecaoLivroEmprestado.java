@@ -3,8 +3,10 @@ package Menu;
 import java.util.Scanner;
 
 import Model.DAO.LivroEmprestadoDAO;
+import Tools.Dbconnection;
 
 import java.time.format.DateTimeFormatter;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
@@ -32,5 +34,15 @@ public class SecaoLivroEmprestado {
     String dataDevolucao = getDate()[1];
 
     LivroEmprestadoDAO.emprestarLivro(estudanteId, livroId, dataEmprestimo, dataDevolucao);
+  }
+
+  public static void retornarLivro() {
+    System.out.println("Informe o id do estudante");
+    int estudanteId = in.nextInt();
+
+    System.out.println("Informe o id do livro");
+    int livroId = in.nextInt();
+
+    LivroEmprestadoDAO.retornarLivro(livroId, estudanteId);
   }
 }

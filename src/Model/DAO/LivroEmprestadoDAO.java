@@ -27,4 +27,19 @@ public class LivroEmprestadoDAO {
 
     Menu.Menu.listarOpcoes();
   }
+
+  public static void retornarLivro(int livroId, int estudanteId) {
+    try (Connection conn = Dbconnection.getConnection()) {
+      String sql = "DELETE FROM livros_emprestados WHERE livro_id = '" + livroId + "'' AND estudante_id = '"
+          + estudanteId + "'";
+
+      PreparedStatement stmt = conn.prepareStatement(sql);
+      stmt.execute();
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+    Menu.Menu.listarOpcoes();
+  }
 }
