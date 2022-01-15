@@ -7,38 +7,39 @@ import java.sql.Statement;
 
 public class Dbconnection {
 
-  public static Connection getConnection() throws ClassNotFoundException {
+  public static Connection getConnection() {
     Connection c = null;
     try {
+
       Class.forName("org.postgresql.Driver");
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:6000/bibliojava",
               "postgres", "admin");
       return c;
-    } catch (SQLException ex) {
+    } catch (SQLException | ClassNotFoundException ex) {
       System.err.println("Não foi possivel estabelecer a conexão com o banco");
       ex.printStackTrace();
       return null;
     }
   }
 
-  public static void CreateTables() throws SQLException {
+  public static void CreateTables() {
     try {
       Connection c = getConnection();
       Statement stmt = c.createStatement();
       String sql = "CREATE TABLE livro " +
-          "(ID INT PRIMARY KEY         NOT NULL," +
+          "(ID SERIAL PRIMARY KEY      NOT NULL," +
           " titulo           CHAR(30)  NOT NULL," +
           " autor            CHAR(30)  NOT NULL," +
           " descricao        CHAR(50)  NOT NULL," +
-          " genero           CHAR(20)  NOT NULL);" +
+          " genero           CHAR(20)  NOT NULL," +
+          " ano_publicacao   CHAR(4)   NOT NULL);" +
 
           "CREATE TABLE bibliotecario " +
           "(ID SERIAL PRIMARY KEY  NOT NULL," +
           " nome             CHAR(50)   NOT NULL," +
           " ra               CHAR(20)   NOT NULL," +
-          " senha            CHAR(30)   NOT NULL," +
-          " genero           CHAR(20)  NOT NULL);" +
+          " senha            CHAR(30)   NOT NULL);" +
 
           "CREATE TABLE estudante " +
           "(ID SERIAL PRIMARY KEY  NOT NULL," +

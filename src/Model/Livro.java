@@ -7,7 +7,7 @@ public class Livro {
   private String titulo;
   private String descricao;
   private String autor;
-  private String dataPublicacao;
+  private String anoPublicacao;
   private String genero;
 
   // Constructor
@@ -15,12 +15,12 @@ public class Livro {
   public Livro() {
   }
 
-  public Livro(String ISBN, String titulo, String descricao, String autor, String dataPublicacao, String genero) {
+  public Livro(String ISBN, String titulo, String descricao, String autor, String anoPublicacao, String genero) {
     this.ISBN = ISBN;
     this.titulo = titulo;
     this.descricao = descricao;
     this.autor = autor;
-    this.dataPublicacao = dataPublicacao;
+    this.anoPublicacao = anoPublicacao;
     this.genero = genero;
 
   }
@@ -31,8 +31,8 @@ public class Livro {
     return autor;
   }
 
-  public String getDataPublicacao() {
-    return dataPublicacao;
+  public String getAnoPublicacao() {
+    return anoPublicacao;
   }
 
   public String getDescricao() {
@@ -55,8 +55,8 @@ public class Livro {
     this.autor = autor;
   }
 
-  public void setDataPublicacao(String dataPublicacao) {
-    this.dataPublicacao = dataPublicacao;
+  public void setAnoPublicacao(String anoPublicacao) {
+    this.anoPublicacao = anoPublicacao;
   }
 
   public void setDescricao(String descricao) {
@@ -74,5 +74,4 @@ public class Livro {
   public void setTitulo(String titulo) {
     this.titulo = titulo;
   }
-
 }

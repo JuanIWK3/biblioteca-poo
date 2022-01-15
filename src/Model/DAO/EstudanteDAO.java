@@ -40,7 +40,7 @@ public class EstudanteDAO {
         String nome = rs.getString(2);
         String classe = rs.getString(3);
 
-        System.out.format("%s | %s | %s", id, nome, classe);
+        System.out.format("%s, %s, %s", id, nome, classe);
       }
       stmt.execute();
 
@@ -49,5 +49,17 @@ public class EstudanteDAO {
     }
 
     Menu.Menu.listarOpcoes();
+  }
+
+  public static void atualizarEstudante(int estudanteId, Estudante estudante) {
+    try (Connection conn = Dbconnection.getConnection()) {
+      String sql = "UPDATE estudante SET classe = '" + estudante.getClasse() + "' WHERE ID = " + estudanteId + "'";
+      PreparedStatement stmt = conn.prepareStatement(sql);
+
+      stmt.execute();
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }

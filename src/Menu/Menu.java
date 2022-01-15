@@ -2,6 +2,8 @@ package Menu;
 
 import java.util.Scanner;
 
+import Model.DAO.LivroEmprestadoDAO;
+
 public class Menu {
   public static Scanner input = new Scanner(System.in); // teclado global
 
@@ -88,28 +90,28 @@ public class Menu {
         if (opcao2biblio != 0) {
           switch (opcao2biblio) {
             case 1:
-              BibliotecarioCliente.adicionarEstudante();
+              SecaoBibliotecario.adicionarEstudante();
               break;
             case 2:
-              System.out.println("editarEstudante()");
+              SecaoBibliotecario.atualizarEstudante();
               break;
             case 3:
-              BibliotecarioCliente.listarEstudantes();
+              SecaoBibliotecario.listarEstudantes();
               break;
             case 4:
-              System.out.println("adicioanrLivro()");
+              SecaoLivro.adicionarLivro();
               break;
             case 5:
-              System.out.println("editarLivro()");
+              SecaoLivro.atualizarLivro();
               break;
             case 6:
-              System.out.println("removerLivro()");
+              SecaoLivro.removerLivro();
               break;
             case 7:
-              System.out.println("listarLivros()");
+              SecaoLivro.listarLivros();
               break;
             case 8:
-              System.out.println("emprestarLivro()");
+              SecaoLivroEmprestado.emprestarLivro();
               break;
             case 9:
               System.out.println("retornarLivro()");
